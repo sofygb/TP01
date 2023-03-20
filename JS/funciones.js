@@ -15,17 +15,24 @@ function calcularPromedio() {
         let promedio = (parseInt(Matemáticas) + parseInt(Lengua) + parseInt(Efsi)) / 3;
         var textPromedio = "El promedio es: " + promedio;
         
-        if(promedio => 6){
-            promedio.style.color = 'green';
+        if(promedio >= 6){
+            cambiarTexto(promedio,"green");
             return alert(textPromedio);
         }
-        else{
-            promedio.style.color = 'red';
+        else if (promedio < 6){
+            cambiarTexto(promedio,"red");
             return alert(textPromedio);
         }
         return alert("El promedio es: " + promedio);
     }
     return alert("Vuelva a ingresar las notas");
+}
+
+function cambiarTexto(promedio, color){
+    var elemento = document.getElementById("promedio");
+    elemento.innerHTML = "El promedio es: " + promedio;
+    elemento.style.color = color;
+    elemento.setAttribute("Class", "una-clase");
 }
 
 function validarNota(nota, materia) {
